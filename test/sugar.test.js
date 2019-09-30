@@ -3,8 +3,8 @@ const setUpGlobalObject = require("../lib/sugar");
 // Invoking this function adds the new methods to the Global Object
 setUpGlobalObject();
 
-describe("Object.size", () => {
-  test("returns the correct size when given an object", () => {
+describe.only("Object.size", () => {
+  test("returns the correct size when an object is given", () => {
     expect(
       Object.size({
         a: 1,
@@ -32,7 +32,9 @@ describe("Object.size", () => {
   });
 });
 
-describe("Object.min", () => {
+
+
+describe.only("Object.min", () => {
   test("returns the smallest number of all values in an object", () => {
     expect(
       Object.min({
@@ -53,6 +55,8 @@ describe("Object.min", () => {
     ).toBe(9);
   });
 });
+
+
 
 describe("Object.max", () => {
   test("returns the largest number of all values in an object", () => {
@@ -76,6 +80,8 @@ describe("Object.max", () => {
   });
 });
 
+
+
 describe("Object.clone", () => {
   test("returns a copy of the object", () => {
     const person1 = {
@@ -89,6 +95,8 @@ describe("Object.clone", () => {
     expect(person2.location).toBe("Leeds");
   });
 });
+
+
 
 describe("Object.get", () => {
   test("returns the value for the given key", () => {
@@ -136,6 +144,8 @@ describe("Object.get", () => {
   });
 });
 
+
+
 describe("Object.has", () => {
   test("returns true if the object has the give key", () => {
     const obj1 = { name: "Sally", location: "Leeds" };
@@ -160,6 +170,8 @@ describe("Object.has", () => {
     expect(Object.has(obj1, "address")).toBe(true);
   });
 });
+
+
 
 describe("Object.sum", () => {
   test("returns the sum of all the values when all values are numbers", () => {
@@ -199,6 +211,8 @@ describe("Object.sum", () => {
   });
 });
 
+
+
 describe("Object.invert", () => {
   test("returns a new object which is the inversion of the given object", () => {
     const original = {
@@ -233,6 +247,8 @@ describe("Object.invert", () => {
     expect(Object.invert(original)).toEqual(expected);
   });
 });
+
+
 
 describe("Object.addAll", () => {
   test("Creates a new object out of all the objects in an array", () => {
@@ -272,6 +288,9 @@ describe("Object.addAll", () => {
   });
 });
 
+
+
+
 describe("Object.find", () => {
   test("returns the found value if the object contains a value that matches the matcher function", () => {
     function matcherFunc(val) {
@@ -308,6 +327,9 @@ describe("Object.find", () => {
   });
 });
 
+
+
+
 describe("Object.every", () => {
   test("returns true if all values in the object pass the condition of the matcher the function", () => {
     function matcherFunc(val) {
@@ -343,6 +365,9 @@ describe("Object.every", () => {
     expect(result).toBe(false);
   });
 });
+
+
+
 
 describe("Object.some", () => {
   test("returns true if one or more values in the object pass the condition of the matcher the function", () => {
